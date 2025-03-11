@@ -2,6 +2,9 @@
 
 Hi! This is my first project in **Go**. The application will read a file from the filesys and write it out to the terminal; as well as keep track of how many times the application is invoked.
 
+# Running
+
+Run `go run main.go\`
 
 # go.mod
 
