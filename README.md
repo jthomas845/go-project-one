@@ -25,8 +25,8 @@ The R/W function is here.
 
 |                		|args|dependencies used                         |
 |----------------|-------------------------------|-----------------------------|
-|WriteToFile|(content *string*, filePath *string*)            |strings.Trim(), os.WriteFile, fmt.Sprint()            |
-|WriteCountToFile |(count *int*, filePath *string*)            |bytes.Trim(), os.WriteFile, fmt.Sprintf()            |
+|WriteToFile|(content *string*, filePath *string*)            |strings.Trim(), os.WriteFile(), fmt.Sprint()            |
+|WriteCountToFile |(count *int*, filePath *string*)            |bytes.Trim(), os.WriteFile(), fmt.Sprintf()            |
 
 
 
@@ -41,3 +41,7 @@ In version 1 of this application, the test is to run 50 invocations of the app a
 In future versions of the application, the app could be containerized and the n=50 could be increased to a value that truly strains the container.
 
 Another idea for a strain test could be to utilize a longer signal string: perhaps an entire Shakespeare play? 
+
+## CI/CD
+This repo's test fucntions are integrated with GitHub Actions for CI/CD.
+Visit [the Actions Tab](https://github.com/jthomas845/go-project-one/actions) for a look at the results of the strain test.
