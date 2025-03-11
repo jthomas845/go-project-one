@@ -4,7 +4,7 @@ Hi! This is my first project in **Go**. The application will read a file from th
 
 # Running
 
-Run `go run main.go\`
+Run `go run main.go`
 
 # go.mod
 
