@@ -8,9 +8,18 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"testing"
 )
 
-func writeToFile(count int, filePath string) {
+func writeToFile(content string, filePath string) {
+	keyword := strings.Trim(fmt.Sprintf(content), "\x00")
+	err := os.WriteFile(filePath, bytes.Trim([]byte(keyword), "\x00"), 0200)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func writeCountToFile(count int, filePath string) {
 	//fmt.Println("W.t.F")
 
 	// Write count to the file using the passed file handle (f)
@@ -111,8 +120,25 @@ func main() {
 
 	//increment count
 	count++
-	writeToFile(count, "data.txt")
+	writeCountToFile(count, "data.txt")
 	fmt.Printf("Invocation Number: %d\n", count) // Formatted printing
 	//close file
 
+}
+
+func TestStrain(t *testing.T) {
+	n := 50
+	threshold := 20 //keep threshold LESS than n.
+
+	signal := "Welcome to My App"
+	altSignal := "We are testing in CI/CD"
+	for x := range n {
+		main()
+		if x == 2 {
+			writeToFile(signal, "signal.txt")
+		}
+		if x == threshold {
+			writeToFile(altSignal, "signal.txt")
+		}
+	}
 }
