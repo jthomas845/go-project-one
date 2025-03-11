@@ -16,6 +16,7 @@ func writeToFile(content string, filePath string) {
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Println("Wrote to the file:", keyword)
 }
 
 func writeCountToFile(count int, filePath string) {
