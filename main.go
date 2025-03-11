@@ -12,7 +12,7 @@ import (
 )
 
 func writeToFile(content string, filePath string) {
-	keyword := strings.Trim(fmt.Sprintf(content), "\x00")
+	keyword := strings.Trim(fmt.Sprint(content), "\x00")
 	err := os.WriteFile(filePath, bytes.Trim([]byte(keyword), "\x00"), 0200)
 	if err != nil {
 		log.Fatal(err)
