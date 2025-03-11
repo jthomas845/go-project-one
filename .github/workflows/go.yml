@@ -11,7 +11,7 @@ on:
 
 jobs:
 
-  build:
+  CI_CD:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
